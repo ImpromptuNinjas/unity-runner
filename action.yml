@@ -1,6 +1,6 @@
-name: 'Unity - Test runner'
-author: Webber Takken <webber@takken.io>
-description: 'Run tests for any Unity project.'
+name: 'Unity - Command Runner'
+author: Tyler Young <tyler@impromptu.ninja>
+description: 'Run Unity project commands.'
 inputs:
   unityVersion:
     required: false
@@ -8,11 +8,7 @@ inputs:
     description: 'Version of unity to use for testing the project.'
   args:
     required: true
-    description: 'Arguments to pass to Unity'
-  workdir:
-    required: false
-    default: ''
-    description: 'Working directory'
+    description: 'Arguments to pass to Unity.'
 branding:
   icon: 'box'
   color: 'gray-dark'
