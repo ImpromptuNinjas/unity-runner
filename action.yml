@@ -6,9 +6,13 @@ inputs:
     required: false
     default: '2019.2.11f1'
     description: 'Version of unity to use for testing the project.'
-outputs:
-  artifactsPath:
-    description: 'Path where the artifacts are stored'
+  args:
+    required: true
+    description: 'Arguments to pass to Unity'
+  workdir:
+    required: false
+    default: ''
+    description: 'Working directory'
 branding:
   icon: 'box'
   color: 'gray-dark'
