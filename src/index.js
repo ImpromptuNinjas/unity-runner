@@ -8,10 +8,8 @@ async function action() {
   const {
     unityVersion,
     projectPath,
-    testMode,
-    artifactsPath,
     useHostNetwork,
-    customParameters,
+    args,
   } = Input.getFromUser();
   const baseImage = ImageTag.createForBase(unityVersion);
 
@@ -23,14 +21,9 @@ async function action() {
     workspace,
     unityVersion,
     projectPath,
-    testMode,
-    artifactsPath,
     useHostNetwork,
-    customParameters,
+    args,
   });
-
-  // Set output
-  await Output.setArtifactsPath(artifactsPath);
 }
 
 action().catch(error => {
