@@ -43,15 +43,25 @@ ls -alh $UNITY_PROJECT_PATH
 # Run Unity
 #
 
+echo ""
+echo "###########################"
+echo "#     Unity Execution     #"
+echo "###########################"
+echo ""
+
+set +e
+
 xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' \
   /opt/Unity/Editor/Unity \
-    -batchmode \
+    -batchmode -stackTraceLogType Full -logFile - \
     -projectPath "$UNITY_PROJECT_PATH" \
     $CUSTOM_PARAMETERS
-    
+
 # Catch exit code
 EXIT_CODE=$?
 
+set -e
+    
 # Display results
 if [ $EXIT_CODE -eq 0 ]; then
   echo "Run succeeded, no failures occurred";
