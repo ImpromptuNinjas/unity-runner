@@ -53,7 +53,7 @@ set +e
 
 xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' \
   /opt/Unity/Editor/Unity \
-    -batchmode -stackTraceLogType Full -logFile - \
+    -batchmode -silent-crashes -logFile - \
     -projectPath "$UNITY_PROJECT_PATH" \
     $CUSTOM_PARAMETERS
 
