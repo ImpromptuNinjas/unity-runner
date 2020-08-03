@@ -8,13 +8,6 @@ UNITY_PROJECT_PATH="$GITHUB_WORKSPACE/$PROJECT_PATH"
 echo "Using project path \"$UNITY_PROJECT_PATH\"."
 
 #
-# Set and display the artifacts path
-#
-
-echo "Using artifacts path \"$ARTIFACTS_PATH\" to save test results."
-FULL_ARTIFACTS_PATH=$GITHUB_WORKSPACE/$ARTIFACTS_PATH
-
-#
 # Display custom parameters
 #
 echo "Using custom parameters $CUSTOM_PARAMETERS."
@@ -27,17 +20,6 @@ echo "Using custom parameters $CUSTOM_PARAMETERS."
 #
 
 echo "Using Unity version \"$UNITY_VERSION\" to test."
-
-#
-# Overall info
-#
-
-echo ""
-echo "###########################"
-echo "#    Project directory    #"
-echo "###########################"
-echo ""
-ls -alh $UNITY_PROJECT_PATH
 
 #
 # Run Unity
@@ -53,7 +35,7 @@ set +e
 
 xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' \
   /opt/Unity/Editor/Unity \
-    -batchmode -silent-crashes -logFile - \
+    -batchmode -logFile - \
     -projectPath "$UNITY_PROJECT_PATH" \
     $CUSTOM_PARAMETERS
 
@@ -62,11 +44,14 @@ EXIT_CODE=$?
 
 set -e
 
-echo ""
-echo "###########################"
-echo "#       Completion        #"
-echo "###########################"
-echo ""
+if [ -f "${UNITY_PROJECT_PATH}/output.xml" ]; then
+	echo ""
+	echo "###########################"
+	echo "#         Output          #"
+	echo "###########################"
+	echo ""
+	cat output.xml
+fi
 
 # Display results
 if [ $EXIT_CODE -eq 0 ]; then
@@ -79,16 +64,12 @@ else
   echo "Unexpected exit code $EXIT_CODE";
 fi
 
-#
-# Results
-#
 
 echo ""
 echo "###########################"
-echo "#    Project directory    #"
+echo "#       Completion        #"
 echo "###########################"
 echo ""
-ls -alh $UNITY_PROJECT_PATH
 
 #
 # Exit
