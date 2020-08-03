@@ -47,10 +47,16 @@ set -e
 if [ -f "${UNITY_PROJECT_PATH}/output.xml" ]; then
 	echo ""
 	echo "###########################"
-	echo "#         Output          #"
+	echo "#       output.xml        #"
 	echo "###########################"
 	echo ""
 	cat output.xml
+else
+  echo ""
+  echo "###########################"
+  echo "#      No output.xml      #"
+  echo "###########################"
+  echo ""
 fi
 
 # Display results
@@ -63,13 +69,6 @@ elif [ $EXIT_CODE -eq 3 ]; then
 else
   echo "Unexpected exit code $EXIT_CODE";
 fi
-
-
-echo ""
-echo "###########################"
-echo "#       Completion        #"
-echo "###########################"
-echo ""
 
 #
 # Exit
