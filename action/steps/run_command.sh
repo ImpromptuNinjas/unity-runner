@@ -44,20 +44,7 @@ EXIT_CODE=$?
 
 set -e
 
-if [ -f "${UNITY_PROJECT_PATH}/output.xml" ]; then
-	echo ""
-	echo "###########################"
-	echo "#       output.xml        #"
-	echo "###########################"
-	echo ""
-	cat output.xml
-else
-  echo ""
-  echo "###########################"
-  echo "#      No output.xml      #"
-  echo "###########################"
-  echo ""
-fi
+find . -name 'TestResults*.xml' -print -exec cat {} \;
 
 # Display results
 if [ $EXIT_CODE -eq 0 ]; then
