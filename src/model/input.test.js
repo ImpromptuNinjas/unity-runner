@@ -23,11 +23,11 @@ describe('Input', () => {
       './.hidden-sub',
       'hyphen-folder',
       'under_score',
-    ])('returns true for %s', folderName => {
+    ])('returns true for %s', (folderName) => {
       expect(Input.isValidFolderName(folderName)).toStrictEqual(true);
     });
 
-    test.each(['..', '../'])('returns false for %s', folderName => {
+    test.each(['..', '../'])('returns false for %s', (folderName) => {
       expect(Input.isValidFolderName(folderName)).toStrictEqual(false);
     });
   });

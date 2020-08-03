@@ -1,10 +1,8 @@
 import { getInput } from '@actions/core';
-import { includes } from 'lodash-es';
 
 class Input {
-
   static isValidFolderName(folderName) {
-    const validFolderName = new RegExp(/^(\.|\.\/)?(\.?\w+([-_]?\w+)*\/?)*$/);
+    const validFolderName = /^(\.|\.\/)?(\.?\w+([_-]?\w+)*\/?)*$/;
 
     return validFolderName.test(folderName);
   }
@@ -14,13 +12,9 @@ class Input {
     const unityVersion = getInput('unityVersion') || '2019.2.11f1';
     const rawProjectPath = getInput('projectPath') || '.';
     const rawUseHostNetwork = getInput('useHostNetwork') || 'false';
-    const args = getInput('args') || '';
+    const rawArguments = getInput('args') || '';
 
     // Validate input
-    if (!this.isValidFolderName(rawArtifactsPath)) {
-      throw new Error(`Invalid artifactsPath "${rawArtifactsPath}"`);
-    }
-
     if (!this.isValidFolderName(rawProjectPath)) {
       throw new Error(`Invalid projectPath "${rawProjectPath}"`);
     }
@@ -38,7 +32,7 @@ class Input {
       unityVersion,
       projectPath,
       useHostNetwork,
-      args,
+      args: rawArguments,
     };
   }
 }

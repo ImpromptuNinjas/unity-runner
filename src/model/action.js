@@ -14,7 +14,7 @@ class Action {
   }
 
   static get name() {
-    return 'unity-test-runner';
+    return 'unity-runner';
   }
 
   static get rootFolder() {

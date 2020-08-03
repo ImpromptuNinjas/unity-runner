@@ -1,9 +1,9 @@
 {
-  "name": "unity-test-runner",
+  "name": "unity-runner",
   "version": "0.0.0",
   "description": "Run tests for any Unity project.",
   "main": "action/index.js",
-  "repository": "git@github.com:webbertakken/unity-test-runner.git",
+  "repository": "git@github.com:ImpromptuNinjas/unity-runner.git",
   "author": "Webber <webber@takken.io>",
   "license": "MIT",
   "scripts": {
@@ -36,7 +36,7 @@
     "jest": "25.1.0",
     "lint-staged": "10.0.8",
     "lodash-es": "4.17.15",
-    "prettier": "1.19.1"
+    "prettier": "2.0.5"
   },
   "husky": {
     "hooks": {

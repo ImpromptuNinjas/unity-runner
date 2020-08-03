@@ -19,11 +19,11 @@ describe('UnityImageVersion', () => {
       expect(image.version).toStrictEqual(some.version);
     });
 
-    test.each(['2000.0.0f0', '2011.1.11f1'])('accepts %p version format', version => {
+    test.each(['2000.0.0f0', '2011.1.11f1'])('accepts %p version format', (version) => {
       expect(() => new ImageTag({ version })).not.toThrow();
     });
 
-    test.each(['some version', '', 1, null])('throws for incorrect versions %p', version => {
+    test.each(['some version', '', 1, null])('throws for incorrect versions %p', (version) => {
       expect(() => new ImageTag({ version })).toThrow();
     });
   });
