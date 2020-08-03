@@ -5,9 +5,12 @@ inputs:
   unityVersion:
     required: false
     default: '2019.2.11f1'
-    description: 'Version of unity to use for testing the project.'
+    description: 'Version of Unity to use for testing the project.'
+  projectPath:
+    required: false
+    description: 'Path to your Unity project.'
   args:
-    required: true
+    required: false
     description: 'Arguments to pass to Unity.'
 branding:
   icon: 'box'
