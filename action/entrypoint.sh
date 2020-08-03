@@ -5,7 +5,7 @@
 #
 
 source /steps/activate.sh
-source /steps/run_tests.sh
+source /steps/run_command.sh || true
 source /steps/return_license.sh
 
 #
