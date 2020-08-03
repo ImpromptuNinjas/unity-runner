@@ -61,7 +61,13 @@ xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' \
 EXIT_CODE=$?
 
 set -e
-    
+
+echo ""
+echo "###########################"
+echo "#       Completion        #"
+echo "###########################"
+echo ""
+
 # Display results
 if [ $EXIT_CODE -eq 0 ]; then
   echo "Run succeeded, no failures occurred";
