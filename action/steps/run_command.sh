@@ -52,9 +52,6 @@ xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' \
 # Catch exit code
 EXIT_CODE=$?
 
-# Print unity log output
-cat "$FULL_ARTIFACTS_PATH/editmode.log"
-
 # Display results
 if [ $EXIT_CODE -eq 0 ]; then
   echo "Run succeeded, no failures occurred";
