@@ -13,11 +13,11 @@ async function action() {
 
   // Run docker image
   await Docker.run(actionImage, {
-    workspace,
     unityVersion,
+    workspace,
     projectPath,
     useHostNetwork,
-    args,
+    customParameters: args,
   });
 }
 
